@@ -1,0 +1,162 @@
+{
+  "info": {
+    "_postman_id": "a1b2c3d4-e5f6-7890-g1h2-i3j4k5l6m7n8",
+    "name": "School API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Registro de Alumno",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Luis Perez\",\n  \"email\": \"luis@example.com\",\n  \"password\": \"123456\",\n  \"role\": \"STUDENT_ROLE\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/auth/register",
+          "host": ["{{base_url}}"],
+          "path": ["api", "auth", "register"]
+        }
+      }
+    },
+    {
+      "name": "Registro de Profesor",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Javier Monzon\",\n  \"email\": \"javier@example.com\",\n  \"password\": \"123456\",\n  \"role\": \"TEACHER_ROLE\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/auth/register",
+          "host": ["{{base_url}}"],
+          "path": ["api", "auth", "register"]
+        }
+      }
+    },
+    {
+      "name": "Login de Alumno",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"luis@example.com\",\n  \"password\": \"123456\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/auth/login",
+          "host": ["{{base_url}}"],
+          "path": ["api", "auth", "login"]
+        }
+      }
+    },
+    {
+      "name": "Login de Profesor",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"javier@example.com\",\n  \"password\": \"123456\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/auth/login",
+          "host": ["{{base_url}}"],
+          "path": ["api", "auth", "login"]
+        }
+      }
+    },
+    {
+      "name": "Obtener Perfil",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{student_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/user/profile",
+          "host": ["{{base_url}}"],
+          "path": ["api", "user", "profile"]
+        }
+      }
+    },
+    {
+      "name": "Crear Curso",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{teacher_token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Matemáticas Avanzadas\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/courses",
+          "host": ["{{base_url}}"],
+          "path": ["api", "courses"]
+        }
+      }
+    },
+    {
+      "name": "Obtener Cursos del Profesor",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{teacher_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/courses",
+          "host": ["{{base_url}}"],
+          "path": ["api", "courses"]
+        }
+      }
+    },
+    {
+      "name": "Asignar Curso a Alumno",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{student_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/courses/{{course_id}}/assign",
+          "host": ["{{base_url}}"],
+          "path": ["api", "courses", "{{course_id}}", "assign"]
+        }
+      }
+    },
+    {
+      "name": "Obtener Cursos del Alumno",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{student_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/user/courses",
+          "host": ["{{base_url}}"],
+          "path": ["api", "user", "courses"]
+        }
+      }
+    }
+  ]
+}

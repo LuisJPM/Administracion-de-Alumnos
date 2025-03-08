@@ -1,0 +1,24 @@
+{
+  "values": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3000",
+      "enabled": true
+    },
+    {
+      "key": "student_token",
+      "value": "<token_estudiante>",
+      "enabled": true
+    },
+    {
+      "key": "teacher_token",
+      "value": "<token_profesor>",
+      "enabled": true
+    },
+    {
+      "key": "course_id",
+      "value": "<id_curso>",
+      "enabled": true
+    }
+  ]
+}
